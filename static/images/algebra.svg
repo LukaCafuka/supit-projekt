@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="logosandtypes_com" data-name="logosandtypes com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 150 150">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="35.22" y1="869.03" x2="155.3" y2="748.94" gradientTransform="translate(0 -689.89)" gradientUnits="userSpaceOnUse">
+      <stop offset=".27" stop-color="#df7326"/>
+      <stop offset=".72" stop-color="#bf1a66"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-2.44" y1="830" x2="118.5" y2="709.06" gradientTransform="translate(0 -689.89)" gradientUnits="userSpaceOnUse">
+      <stop offset=".27" stop-color="#df7326"/>
+      <stop offset=".72" stop-color="#bf1a66"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-2" d="M0,0H150V150H0V0Z"/>
+  <g>
+    <path class="cls-3" d="M121.52,83.21c-3.76,2.05-7.54,3.76-11.3,5.48l14.04,34.94c-16.58,1.74-55.48,4.69-56.52-14.39,0-10.28,10.96-15.75,30.14-24.67,12.68-5.83,27.07-13.02,41.11-23.64l-4.45-11.3c-24.25,18.27-45.22,22.26-67.14,36.99-14.27,10.2-16.99,29.8-3.76,40.77,12.88,12.76,52.07,11.06,67.14,8.23l10.96-2.05-20.21-50.36h0Z"/>
+    <path class="cls-1" d="M54.72,121.23H27.67L61.24,39.02s4.05-9.67,6.85-11.65c1.01-.72,3.43-2.05,7.54-2.05s6.55,1.31,7.54,2.05c2.89,2.22,5.14,7.19,6.51,11.3l11.3,27.4c2.74-1.37,10.28-5.14,11.3-5.83l-11.3-27.07c-4.46-10.98-9.87-20.88-24.67-21.24-6.54-.5-13.46,2.47-16.1,4.8-5.48,4.45-8.23,10.96-10.62,16.44L8.48,133.22h56.86c-1.37-.69-2.74-1.71-3.76-2.74-3.09-2.4-5.48-5.48-6.85-9.25h0Z"/>
+  </g>
+</svg>

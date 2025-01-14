@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontaktirajte nas!</title>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bg-zinc-900 text-white fixed w-screen z-10">
+    <nav class="container mx-auto flex justify-between items-start sm:items-center">
+        <a href="index.html" class="logo p-1">
+            <img alt="" src="" srcset="static/images/algebra.svg" width="50px">
+        </a>
+
+        <ul class=" hidden *:w-100 sm:space-x-4 *:self-center flex-col sm:flex sm:flex-row mt-12 sm:mt-0
+         flex items-stretch *:mx-auto flex-row *:*:p-2 *:py-2 *:px-2 font-medium"
+            id="menu">
+            <li class="inline-flex hover:bg-neutral-800 transition"><a class="hover:bg-neutral-800 transition" href="#">O
+                nama</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="#">Novosti</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="#">Nastavni plan</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="kontakt.html">Kontakt</a></li>
+            <li class="inline-flex items-center hover:bg-neutral-800 transition"><a
+                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" href="#">Prijava</a>
+                <svg class="!p-1" height="30" style="fill: #fb923c;" viewBox="0 0 24 24" width="30"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="m13 16 5-4-5-4v3H4v2h9z"></path>
+                    <path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897
+                     2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path>
+                </svg>
+            </li>
+        </ul>
+        <div class="sm:hidden flex align-center justify-center flex p-4">
+            <button class="text-white focus:outline-none" id="menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+</header>
+<div class="contact-background">
+    <div class="container mx-auto">
+        <div class="py-48">
+            <form action="https://www.fulek.com/mvc/supit/project-contact-form" method="post">
+                <div class="border-b border-gray-900/10 backdrop-blur-lg p-6 transparent-white rounded">
+                    <h2 class="text-base/7 font-semibold text-gray-900">Imate pitanja?</h2>
+                    <p class="mt-1 text-sm/6 text-gray-600">Kontaktirajte nas, brzo odgovaramo!</p>
+
+                    <div class="mt-10 sm:m-0 m-12">
+                        <div class="sm:col-span-4">
+                            <label for="FullName" class="block text-sm/6 font-medium text-gray-900">Ime i prezime</label>
+                            <div class="mt-2">
+                                <input placeholder="Pero Perić" type="text" name="FullName" id="FullName" class="block w-full text-sm rounded-md border-0 p-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm/6">
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-4">
+                            <label for="Email" class="block text-sm/6 font-medium text-gray-900">Email</label>
+                            <div class="mt-2">
+                                <input placeholder="pero@algebra.hr" id="email" name="Email" type="Email" class="block w-full text-sm rounded-md border-0 p-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm/6">
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-3">
+                            <label for="Importance" class="block text-sm/6 font-medium text-gray-900">Važnost</label>
+                            <div class="mt-2 flex">
+
+
+                                <fieldset>
+                                    <legend class="sr-only">Importance</legend>
+
+                                    <div class="flex items-center mb-4">
+                                        <input id="High" type="radio" name="Importance" value="High" class="w-4 h-4 border-gray-300 accent-red-400 focus:ring-1 focus:ring-orange-300 dark:focus:ring-orange-600 dark:focus:bg-orange-600 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="High" class="block ms-2  text-sm font-medium text-gray-900">
+                                            Visoka
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center mb-4">
+                                        <input id="Low" type="radio" name="Importance" value="Low" class="w-4 accent-red-400 h-4 text-sm border-gray-300 focus:ring-1 focus:ring-orange-300 dark:focus:ring-orange-600 dark:focus:bg-orange-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                        <label for="Low" class="block ms-2 text-sm font-medium text-gray-900">
+                                            Niska
+                                        </label>
+                                    </div>
+                                </fieldset>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <fieldset class="sm:col-span-4">
+                            <legend class="sr-only">Newsletter</legend>
+
+                            <div class="flex items-center mb-4">
+                                <input checked id="ReceiveNewsletter" name="ReceiveNewsletter" type="checkbox" value="True" class="w-4 accent-red-400 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 focus:ring-2" >
+                                <label for="ReceiveNewsletter" class="ms-2 text-sm font-medium text-gray-900 ">Pretplati se na <span href="#" class="text-red-600  cursor-default hover:underline dark:text-red-500">newsletter</span>?</label>
+                            </div>
+                        </fieldset>
+
+
+                        <div class="sm:col-span-4 mb-4">
+                            <label for="Message" class="block text-sm font-medium text-gray-900">Vaša poruka</label>
+                            <textarea id="Message" rows="4" name="Message" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 focus:ring-2 rounded-lg border border-gray-300 focus:ring-red-500 focus:border-red-500" placeholder="Poruka..."></textarea>
+                        </div>
+                        <button type="submit" class="text-white mx-auto bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm px-10 py-2.5 text-center me-2 mb-2">Pošalji</button>
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<footer class="bg-zinc-900 shadow">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="index.html" class="logo p-1">
+                <img alt="" src="" srcset="static/images/algebra.svg" width="50px">
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
+                <li>
+                    <a href="o-nama.html" class="hover:underline me-4 md:me-6">O nama</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Novosti</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Nastavni plan</a>
+                </li>
+                <li>
+                    <a href="konta" class="hover:underline">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://algebra.hr/" class="hover:underline">Algebra</a>. All Rights Reserved.</span>
+    </div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

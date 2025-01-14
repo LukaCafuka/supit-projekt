@@ -1,0 +1,83 @@
+<!--
+---Glavna stranica---
+Navbar, Hero sekcija centrirana na ekranu
+Call to action dugme, "Saznaj više" (Vodi na kontakt podstranicu)
+|Luka Filipić|
+---luka@z.com.hr---
+-->
+<!doctype html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Sveučilište Algebra</title>                                          <!-- Title za karticu -->
+    <script src="https://cdn.tailwindcss.com"></script>                         <!-- Import tailwindcss -->
+</head>
+<body>
+<!--Navbar sekcija-->
+<header class="bg-zinc-900 text-white fixed w-screen z-10">
+    <nav class="container mx-auto flex justify-between items-start sm:items-center">
+        <a href="index.html" class="logo p-1">
+            <img alt="" src="" srcset="static/images/algebra.svg" width="50px"> <!-- Logo -->
+        </a>
+        <!--Nav gumbi sekcija-->
+        <ul class=" hidden *:w-100 sm:space-x-4 *:self-center flex-col sm:flex sm:flex-row mt-12 sm:mt-0
+         flex items-stretch *:mx-auto flex-row *:*:p-2 *:py-2 *:px-2 font-medium"
+            id="menu">
+            <li class="inline-flex hover:bg-neutral-800 transition"><a class="hover:bg-neutral-800 transition" href="o-nama.html">O
+                nama</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="#">Novosti</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="#">Nastavni plan</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="kontakt.html">Kontakt</a></li>
+            <li class="inline-flex items-center hover:bg-neutral-800 transition"><a
+                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" href="#">Prijava</a>
+                <svg class="!p-1" height="30" style="fill: #fb923c;" viewBox="0 0 24 24" width="30"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="m13 16 5-4-5-4v3H4v2h9z"></path>
+                    <path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897
+                     2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path>
+                </svg>
+            </li>
+        </ul>
+        <!-- Hamburger dugme za mobitel -->
+        <div class="sm:hidden flex align-center justify-center flex p-4">
+            <button class="text-white focus:outline-none" id="menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero sekcija -->
+<div class="bg-center bg-cover absolute w-screen min-h-screen bg-no-repeat bg-[url('https://www.sigma.hr/wp-content/uploads/2023/06/algebra-4.jpg')] bg-gray-700 bg-blend-multiply">
+
+
+    <section class="container mx-auto h-screen">
+        <div class="px-4 mx-auto justify-center h-full align-center gap-10 flex flex-col max-w-screen-xl text-left py-24 lg:py-56">
+            <div>
+                <h1 class="mb-4 text-4xl font-bold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">BUDI IZVRSTAN U ONOM ŠTO VOLIŠ.</h1>
+                <p class="mb-8 text-2xl inline-block font-semibold bg-gradient-to-r from-orange-400 via-50% to-80% via-red-500 to-pink-500 bg-clip-text text-transparent md:text-5xl lg:text-6xl">ZAISKRI.</p>
+            </div>
+            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-orange-400 via-50% to-80% via-red-500 to-pink-500 hover:shadow-xl transition hover:shadow-red-900">
+                    Saznaj više
+                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

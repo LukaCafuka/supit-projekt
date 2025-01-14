@@ -1,0 +1,132 @@
+<!--
+---Glavna stranica---
+Navbar, Hero sekcija centrirana na ekranu
+Call to action dugme, "Saznaj više" (Vodi na kontakt podstranicu)
+|Luka Filipić|
+---luka@z.com.hr---
+-->
+<!doctype html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Sveučilište Algebra</title>                                          <!-- Title za karticu -->
+    <script src="https://cdn.tailwindcss.com"></script>                         <!-- Import tailwindcss -->
+</head>
+<body>
+<!--Navbar sekcija-->
+<header class="bg-zinc-900 text-white fixed w-screen z-10">
+    <nav class="container mx-auto flex justify-between items-start sm:items-center">
+        <a href="index.html" class="logo p-1">
+            <img alt="" src="" srcset="static/images/algebra.svg" width="50px"> <!-- Logo -->
+        </a>
+        <!--Nav gumbi sekcija-->
+        <ul class=" hidden *:w-100 sm:space-x-4 *:self-center flex-col sm:flex sm:flex-row mt-12 sm:mt-0
+         flex items-stretch *:mx-auto flex-row *:*:p-2 *:py-2 *:px-2 font-medium"
+            id="menu">
+            <li class="inline-flex hover:bg-neutral-800 transition"><a class="hover:bg-neutral-800 transition" href="#">O
+                nama</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="#">Novosti</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="#">Nastavni plan</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="kontakt.html">Kontakt</a></li>
+            <li class="inline-flex items-center hover:bg-neutral-800 transition"><a
+                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" href="#">Prijava</a>
+                <svg class="!p-1" height="30" style="fill: #fb923c;" viewBox="0 0 24 24" width="30"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="m13 16 5-4-5-4v3H4v2h9z"></path>
+                    <path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897
+                     2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path>
+                </svg>
+            </li>
+        </ul>
+        <!-- Hamburger dugme za mobitel -->
+        <div class="sm:hidden flex align-center justify-center flex p-4">
+            <button class="text-white focus:outline-none" id="menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<div class="bg-center bg-cover bg-no-repeat pt-12 min-h-96 bg-zinc-950">
+<section class="container pt-12 mx-auto">
+
+    <div class="flex lg:w-3/4 flex-col lg:text-left text-justify px-2 justify-self-center">
+        <h2 class="text-4xl font-extrabold dark:text-white">O nama</h2>
+        <p class="my-4 text-lg text-gray-500">Obećajemo pomoć u pronalasku onoga što voliš raditi i da ćemo te poticati na izvrsnost - kvalitetom programa i procesa, strastvenim predavačima, globalno aplikabilnim znanjem te poticanjem kvalitete života. <br><br>Postoje vrijednosti u koje vjerujemo od prvog dana, koje dijele naši predavači, ali i naši polaznici, bez obzira imaju li oni 7 ili 77 godina. Pomno smo odabrali atribute koji su odraz tih naših vrijednosti i koji su ključni u kreiranju jasne i jedinstvene slike o našem brandu. </p>
+    </div>
+
+    <div class="flex justify-around lg:flex-row flex-col gap-3 lg:items-stretch items-center mt-12">
+
+        <div class="block max-w-sm p-6 border hover:bg-zinc-700 transition duration-200 border-red-900 rounded-lg shadow bg-zinc-800">
+
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Specijalizirano i kvalitetno </h5>
+            <p class="font-normal text-justify text-gray-100">Svi naši nastavni programi i procesi baziraju se na globalnim standardima i najrelevantnijim znanjima potrebnim za uspjeh na tržištu rada. Spajamo snažnu teorijsku podlogu s praktičnim znanjima kako bismo pomogli našim polaznicima da pronađu ono što vole raditi. Koliko smo uspješni u tome najbolje pokazuje činjenica da 100% naših studenata pronalazi posao unutar 6 mjeseci od diplome, dok čak 85% polaznika programa cjeloživotnog obrazovanja promijeni posao ili napreduje u roku 3 mjeseca nakon završetka programa. </p>
+        </div>
+
+        <div class="block max-w-sm p-6 border hover:bg-zinc-700 transition duration-200 border-red-900 rounded-lg shadow bg-zinc-800">
+
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Izbalansirano</h5>
+            <p class="font-normal text-justify text-gray-100">Obrazovanje za nas podrazumijeva akademsku, ali i društvenu komponentu čovjeka. Snažno vjerujemo da je čovjek spreman na napredak tek kada pronađe ravnotežu u životu. Stoga kreiramo okruženje koje će u jednakoj mjeri poticati kvalitetu obrazovanja i ispunjen i kvalitetan život. Ulaganje u obrazovanje uvijek znači ulaganje u sebe. Vjerujemo da upravo upisom studija ili programa obrazovanja postižemo balans između svakodnevnih obveza i kvalitetnog vremena koje odvajamo za sebe. </p>
+        </div>
+
+        <div class="block max-w-sm p-6 border hover:bg-zinc-700 transition duration-200 border-red-900 rounded-lg shadow bg-zinc-800">
+
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Izvrsno</h5>
+            <p class="font-normal text-justify text-gray-100">Izvrsnost je ključna emocionalna diferencijacija našeg branda – pomažemo našim polaznicima i studentima da pronađu ono što vole raditi i postanu izvrsni u tome. Našu izvrsnost dokazuju brojna priznanja i certifikati za kvalitetu naših nastavnih programa i procesa, ali i vrhunski strastveni predavači koji prenose tu iskru na sve studente i polaznike koji dođu u Algebru. Na putu do pronalaska onog što volimo postoji onaj trenutak kad shvatimo da mi to možemo i mi to želimo raditi, mi taj moment nazivamo iskra, zato želimo da svi koji su dio Algebre postanu izvrsni u onom što vole raditi odnosno da zaiskre u Algebri. </p>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="bg-center bg-cover mt-12 bg-no-repeat bg-zinc-800">
+    <section class="container pt-12 mx-auto">
+    <div class="flex flex-col justify-self-center">
+        <h2 class="text-4xl font-extrabold text-center dark:text-white">Povijest</h2>
+        <p class="my-4 text-lg text-justify text-gray-300 px-2">Zajedno gradimo povijest Algebre. Počeli smo prije gotovo dvadeset godina i s tobom nastavljamo put prema novim uspjesima.
+
+            Otvorili smo Algebra LAB, jedinstveni inovacijski centar koji pomaže tvrtkama, javnim službama i start-up projektima razviti inovativna poslovna rješenja koja će potaknuti konkurentnost gospodarstva. Investicijom od čak tri milijuna kuna, jedini u Hrvatskoj smo objedinili tri ključna elementa – odjel primijenjenog istraživanja i razvoja u digitalnom području, start-up inkubator s coworking prostorom te inovativnu edukacijsku platformu namijenjenu širenju najnaprednijih tehnoloških i poslovnih znanja. Algebra LAB novo je mjesto je za inovacije, kreacije, ideje i snove o budućnosti. </p>
+    </div>
+    </section>
+</div>
+
+
+
+</div>
+<footer class="bg-zinc-900 shadow">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="index.html" class="logo p-1">
+                <img alt="" src="" srcset="static/images/algebra.svg" width="50px">
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
+                <li>
+                    <a href="o-nama.html" class="hover:underline me-4 md:me-6">O nama</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Novosti</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Nastavni plan</a>
+                </li>
+                <li>
+                    <a href="konta" class="hover:underline">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://algebra.hr/" class="hover:underline">Algebra</a>. All Rights Reserved.</span>
+    </div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>
