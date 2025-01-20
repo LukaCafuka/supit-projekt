@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="utils/jquery-3.7.1.min.js"></script>
+    <title>Prijava</title>
+</head>
+<body>
+<header class="bg-zinc-900 text-white fixed w-screen z-10">
+    <nav class="container mx-auto flex justify-between items-start sm:items-center">
+        <a href="index.html" class="logo p-1">
+            <img alt="" src="" srcset="static/images/algebra.svg" width="50px"> <!-- Logo -->
+        </a>
+        <!--Nav gumbi sekcija-->
+        <ul class=" hidden *:w-100 sm:space-x-4 *:self-center flex-col sm:flex sm:flex-row mt-12 sm:mt-0
+         flex items-stretch *:mx-auto flex-row *:*:p-2 *:py-2 *:px-2 font-medium"
+            id="menu">
+            <li class="inline-flex hover:bg-neutral-800 transition"><a class="hover:bg-neutral-800 transition" href="o-nama.html">O
+                nama</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="#">Novosti</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="#">Nastavni plan</a></li>
+            <li class="inline-flex hover:bg-neutral-800 transition"><a href="kontakt.html">Kontakt</a></li>
+            <li class="inline-flex items-center hover:bg-neutral-800 transition"><a
+                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" href="prijava.html">Prijava</a>
+                <svg class="!p-1" height="30" style="fill: #fb923c;" viewBox="0 0 24 24" width="30"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="m13 16 5-4-5-4v3H4v2h9z"></path>
+                    <path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897
+                     2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path>
+                </svg>
+            </li>
+        </ul>
+        <!-- Hamburger dugme za mobitel -->
+        <div class="sm:hidden flex align-center justify-center flex p-4">
+            <button class="text-white focus:outline-none" id="menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<div class="bg-center flex flex-col relative justify-between bg-cover bg-no-repeat min-h-screen bg-zinc-950">
+    <div></div>
+
+    <section id="login-form" class=" lg:w-1/3 w-2/3 py-12 mx-auto">
+
+        <label for="username" class="block mb-2 text-sm font-medium text-white">Korisničko ime</label>
+        <div class="flex">
+
+          <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
+            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+            </svg>
+          </span>
+
+        <input type="text" id="username" class="rounded-none rounded-e-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 " placeholder="Pero">
+
+        </div>
+
+        <label for="password" class="block mb-2 text-sm font-medium text-white mt-4">Lozinka</label>
+
+        <div class="relative">
+            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="...">
+        </div>
+
+        <div class="flex mt-8 justify-between">
+
+        <button id="login-btn" class=" px-3 py-2 font-semibold bg-gradient-to-r rounded-lg from-orange-400 via-50% to-80% via-red-500 to-pink-500">Prijava</button>
+
+
+
+        <div id="login-msg" class="flex items-center hidden px-2 text-gray-200 bg-zinc-800 rounded-lg shadow" role="alert">
+
+            <div id="login-text" class="mx-3 text-sm font-normal">Učitavanje...</div>
+
+        </div>
+
+
+        </div>
+
+        <p class="text-gray-200 mt-3">Nemate korisnički račun?  <a id="register-toggle" href="#" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
+            Registrirajte se
+            <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a></p>
+
+    </section>
+
+    <section id="register-form" class="hidden lg:w-1/3 w-2/3 py-12 mx-auto">
+
+        <label for="username-reg" class="block mb-2 text-sm font-medium text-white">Korisničko ime</label>
+        <div class="flex">
+
+          <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
+            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+            </svg>
+          </span>
+
+            <input type="text" id="username-reg" class="rounded-none rounded-e-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 " placeholder="Pero">
+
+        </div>
+
+        <label for="password-reg" class="block mb-2 text-sm font-medium text-white mt-4">Lozinka</label>
+
+        <div class="relative">
+            <input type="password" id="password-reg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="...">
+        </div>
+
+        <div class="flex mt-8 justify-between">
+
+            <button id="register-btn" class=" px-3 py-2 font-semibold bg-gradient-to-r rounded-lg from-orange-400 via-50% to-80% via-red-500 to-pink-500">Registracija</button>
+
+
+
+            <div id="register-msg" class="flex items-center hidden px-2 text-gray-200 bg-zinc-800 rounded-lg shadow" role="alert">
+
+                <div id="register-text" class="mx-3 text-sm font-normal">Učitavanje...</div>
+
+            </div>
+
+
+        </div>
+
+        <p class="text-gray-200 mt-3">Imate već postojeći korisnički račun?  <a id="login-toggle" href="#" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
+            Prijavite se
+            <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a></p>
+
+    </section>
+
+    <footer class="bg-zinc-900 shadow w-full bottom-0">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="index.html" class="logo p-1">
+                    <img alt="" src="" srcset="static/images/algebra.svg" width="50px">
+                </a>
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
+                    <li>
+                        <a href="o-nama.html" class="hover:underline me-4 md:me-6">O nama</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Novosti</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Nastavni plan</a>
+                    </li>
+                    <li>
+                        <a href="kontakt.html" class="hover:underline">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://algebra.hr/" class="hover:underline">Algebra</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
