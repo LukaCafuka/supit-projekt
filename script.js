@@ -135,6 +135,10 @@ $(document).ready(() => {
 function loadCurriculum() {
     const token = localStorage.getItem('token');
     let predmeti = [];
+    let totalECTS = 0;
+    let totalHours = 0;
+    let totalPredavanja = 0;
+    let totalVjezbe = 0;
 
     if (!token) {
 
@@ -172,7 +176,8 @@ function loadCurriculum() {
 
         if (matchingPredmeti.length > 0) {
             const suggestions = matchingPredmeti
-                .map(p => `<li data-id="${p.id}">${p.kolegij}</li>`)
+                .slice(0, 10)
+                .map(p => `<li data-id="${p.id}" class="text-white">${p.kolegij}</li>`)
                 .join('');
             $('#suggestions').html(suggestions).show();
         } else {
@@ -180,5 +185,75 @@ function loadCurriculum() {
 
             $('#suggestions').html('').hide();
         }
+    });
+
+    $('#suggestions').on('click', 'li', function () {
+        const predmetId = $(this).data('id');
+        const curriculumName = $(this).text();
+
+        const existingRow = $('#curriculum-table tbody tr').filter(function () {
+            return $(this).find('td:first').text() === curriculumName;
+        });
+
+        if (existingRow.length > 0) {
+            return;
+        }
+
+
+        $.ajax({
+            url: `https://www.fulek.com/data/api/supit/get-curriculum/${predmetId}`,
+            method: "GET",
+            headers: { Authorization: `Bearer ${token}` },
+            success: (response) => {
+                const newRow = `
+                    <tr>
+                        <td>${response.data.kolegij}</td>
+                        <td>${response.data.ects}</td>
+                        <td>${response.data.sati}</td>
+                        <td>${response.data.predavanja}</td>
+                        <td>${response.data.vjezbe}</td>
+                        <td>${response.data.tip}</td>
+                        <td><button class="remove-btn">Obriši</button></td>
+                    </tr>
+                `;
+                $('#curriculum-table tbody').append(newRow);
+
+                totalECTS += response.data.ects;
+                totalHours += response.data.sati;
+                totalPredavanja += response.data.predavanja;
+                totalVjezbe += response.data.vjezbe;
+                $('#total-ects').text(totalECTS);
+                $('#total-hours').text(totalHours);
+                $('#total-predavanja').text(totalPredavanja);
+                $('#total-vjezbe').text(totalVjezbe);
+
+
+                $('#curriculum-input').val('');
+                $('#suggestions').hide();
+            },
+            error: (xhr, error) => {
+                console.error("Error fetching curriculum details:", error);
+            }
+        });
+    });
+
+    // Handle removing a row from the table
+    $('#curriculum-table').on('click', '.remove-btn', function () {
+        const row = $(this).closest('tr');
+        const ects = parseInt(row.find('td:nth-child(2)').text());
+        const sati = parseInt(row.find('td:nth-child(3)').text());
+        const predavanja = parseInt(row.find('td:nth-child(4)').text());
+        const vjezbe = parseInt(row.find('td:nth-child(5)').text());
+
+        // Subtract ECTS and remove the row
+        totalECTS -= ects;
+        totalHours -= sati;
+        totalPredavanja -= predavanja;
+        totalVjezbe -= vjezbe;
+        $('#total-ects').text(totalECTS);
+        $('#total-hours').text(totalHours);
+        $('#total-predavanja').text(totalPredavanja);
+        $('#total-vjezbe').text(totalVjezbe);
+        row.remove();
     });
 }

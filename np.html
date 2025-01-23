@@ -45,13 +45,77 @@
         </div>
     </nav>
 </header>
-<section class="container pt-24 mx-auto">
+<div class="bg-center bg-cover relative flex flex-col justify-between bg-no-repeat pt-12 min-h-screen bg-zinc-950">
+<section class="container mx-auto pt-24 flex flex-1 justify-between items-start">
 
-    <div class="flex lg:w-3/4 flex-col lg:text-left text-justify px-12 justify-self-center">
-        <input type="text" id="np-input" placeholder="Upišite naziv kolegija">
-        <ul id="suggestions" style="display: none;"></ul>
-    </div>
+
+    <form class="max-w-lg">
+        <div class="relative w-96">
+            <div class="absolute mt-5 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+            <input type="text" id="np-input" placeholder="Upišite naziv kolegija" class="block w-full p-4 ps-10 text-sm text-zinc-200 border border-gray-300 rounded-lg bg-zinc-900 border-zinc-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" />
+            <ul id="suggestions" style="display: none;"></ul>
+        </div>
+    </form>
+
+
+    <table class="flex-1 border-collapse" id="curriculum-table">
+        <thead class="[&>*]:border-collapse">
+        <tr class="[&>*]:p-4 [&>*]:text-white">
+            <th>Kolegij</th>
+            <th>ECTS</th>
+            <th>Sati</th>
+            <th>Predavanja</th>
+            <th>Vježbe</th>
+            <th>Tip</th>
+            <th>Akcija</th>
+        </tr>
+        </thead>
+        <tbody class="[&>*]:border-collapse [&>*]:text-center [&>*]:text-white border-b-10 outline-red-500 pb-6">
+
+        </tbody>
+        <tfoot class="[&>*]:border-collapse">
+            <tr class="[&>*]:p-4 [&>*]:text-center [&>*]:text-white [&>*]:border-collapse border-t-2 outline-red-500">
+                <td colspan="1"><strong>Ukupno:</strong></td>
+                <td id="total-ects">0</td> <!-- Total ECTS is displayed here -->
+                <td colspan="1" id="total-hours"></td> <!-- Empty columns to fill the row -->
+                <td colspan="1" id="total-predavanja"></td>
+                <td colspan="1" id="total-vjezbe"></td>
+            </tr>
+        </tfoot>
+    </table>
 </section>
+
+    <footer class="bg-zinc-900 shadow w-full">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="index.html" class="logo p-1">
+                    <img alt="" src="" srcset="static/images/algebra.svg" width="50px">
+                </a>
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
+                    <li>
+                        <a href="o-nama.html" class="hover:underline me-4 md:me-6">O nama</a>
+                    </li>
+                    <li>
+                        <a href="novosti.html" class="hover:underline me-4 md:me-6">Novosti</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Nastavni plan</a>
+                    </li>
+                    <li>
+                        <a href="kontakt.html" class="hover:underline">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
+            <span class="block text-sm sm:text-center text-gray-400">© 2024 <a href="https://algebra.hr/" class="hover:underline">Algebra</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+</div>
+
 
 
 
