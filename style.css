@@ -7,3 +7,8 @@
 .transparent-white {
     background-color: rgba(225, 225, 225, 0.45);
 }
+
+.custom-bg {
+    background-color: rgba(225, 225, 225, 0.45);
+    backdrop-filter: blur(5px);
+}

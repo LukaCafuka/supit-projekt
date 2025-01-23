@@ -14,6 +14,23 @@ menuBtn.addEventListener('click', () => {
 });
 
 
+const novost1 = document.querySelectorAll('.novost1');
+const novost2 = document.querySelectorAll('.novost2');
+const novost3 = document.querySelectorAll('.novost3');
+
+const novost1txt = document.getElementById('novost1txt');
+const novost2txt = document.getElementById('novost2txt');
+const novost3txt = document.getElementById('novost3txt');
+
+novost1.forEach(novost => {
+    novost.addEventListener('click', () => {
+        novost1txt.classList.toggle('hidden');
+
+    })
+})
+
+
+
 
 $(document).ready(() => {
     //Login/register switching
