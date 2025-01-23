@@ -1,19 +1,11 @@
-<!--
----Glavna stranica---
-Navbar, Hero sekcija centrirana na ekranu
-Call to action dugme, "Saznaj više" (Vodi na kontakt podstranicu)
-|Luka Filipić|
----luka@z.com.hr---
--->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <title>Sveučilište Algebra</title>                                          <!-- Title za karticu -->
+    <title>Nastavni plan</title>
     <script src="https://cdn.tailwindcss.com"></script>                         <!-- Import tailwindcss -->
+    <link rel="stylesheet" href="style.css">
+    <script src="utils/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 <!--Navbar sekcija-->
@@ -53,29 +45,14 @@ Call to action dugme, "Saznaj više" (Vodi na kontakt podstranicu)
         </div>
     </nav>
 </header>
+<section class="container pt-24 mx-auto">
 
-<!-- Hero sekcija -->
-<div class="bg-center bg-cover absolute w-screen min-h-screen bg-no-repeat bg-[url('https://www.sigma.hr/wp-content/uploads/2023/06/algebra-4.jpg')] bg-gray-700 bg-blend-multiply">
+    <div class="flex lg:w-3/4 flex-col lg:text-left text-justify px-12 justify-self-center">
+        <input type="text" id="np-input" placeholder="Upišite naziv kolegija">
+        <ul id="suggestions" style="display: none;"></ul>
+    </div>
+</section>
 
-
-    <section class="container mx-auto h-screen">
-        <div class="px-4 mx-auto justify-center h-full align-center gap-10 flex flex-col max-w-screen-xl text-left py-24 lg:py-56">
-            <div>
-                <h1 class="mb-4 text-4xl font-bold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">BUDI IZVRSTAN U ONOM ŠTO VOLIŠ.</h1>
-                <p class="mb-8 text-2xl inline-block font-semibold bg-gradient-to-r from-orange-400 via-50% to-80% via-red-500 to-pink-500 bg-clip-text text-transparent md:text-5xl lg:text-6xl">ZAISKRI.</p>
-            </div>
-            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                <a href="o-nama.html" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-orange-400 via-50% to-80% via-red-500 to-pink-500 hover:shadow-xl transition hover:shadow-red-900">
-                    Saznaj više
-                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-</div>
 
 
 <script src="script.js"></script>

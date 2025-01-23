@@ -29,10 +29,26 @@ novost1.forEach(novost => {
     })
 })
 
+novost2.forEach(novost => {
+    novost.addEventListener('click', () => {
+        novost2txt.classList.toggle('hidden');
+
+    })
+})
+
+novost3.forEach(novost => {
+    novost.addEventListener('click', () => {
+        novost3txt.classList.toggle('hidden');
+
+    })
+})
+
 
 
 
 $(document).ready(() => {
+    const currentPage = window.location.pathname;
+
     //Login/register switching
     $("#register-toggle").click((e) => {
         e.preventDefault();
@@ -110,4 +126,59 @@ $(document).ready(() => {
             }
         });
     })
+
+    if (currentPage.includes('np.html')) {
+        loadCurriculum();
+    }
 })
+
+function loadCurriculum() {
+    const token = localStorage.getItem('token');
+    let predmeti = [];
+
+    if (!token) {
+
+        console.warn('Token is missing! Redirecting to login...');
+        return;
+    }
+
+    $.ajax({
+        url: "https://www.fulek.com/data/api/supit/curriculum-list/hr",
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+        success: (response) => {
+            console.log('Data loaded successfully:', response);
+            predmeti = response.data;
+
+        },
+        error: (xhr, error) => {
+            console.error('Error fetching data:', error);
+        }
+    });
+
+    $('#np-input').on('input', function () {
+        const query = $(this).val().toLowerCase().trim();
+
+        if (query === "") {
+            $('#suggestions').html('').hide();
+            return;
+        }
+
+        const matchingPredmeti = predmeti.filter(p =>
+            p.kolegij.toLowerCase().includes(query)
+        );
+
+        if (matchingPredmeti.length > 0) {
+            const suggestions = matchingPredmeti
+                .map(p => `<li data-id="${p.id}">${p.kolegij}</li>`)
+                .join('');
+            $('#suggestions').html(suggestions).show();
+        } else {
+
+
+            $('#suggestions').html('').hide();
+        }
+    });
+}
