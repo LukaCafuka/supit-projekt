@@ -143,6 +143,12 @@ function loadCurriculum() {
     if (!token) {
 
         console.warn('Token is missing! Redirecting to login...');
+        $('#login-error').removeClass('opacity-0');
+        $('#login-error').removeClass('opacity-100');
+        $('#predmeti-data').remove();
+        setTimeout(() => {
+            document.location.href = 'prijava.html';
+        }, 3000);
         return;
     }
 

@@ -46,7 +46,11 @@
     </nav>
 </header>
 <div class="bg-center bg-cover relative flex flex-col justify-between bg-no-repeat pt-12 min-h-screen bg-zinc-950">
-<section class="container mx-auto pt-24 flex flex-1 justify-between items-start">
+
+    <div id="login-error" class="text-red-500 pt-12 text-2xl font-bold text-center opacity-0">
+        <h1>Niste prijavljeni! Preusmjeravanje na mjesto prijave za 3 sekunde...</h1>
+    </div>
+<section id="predmeti-data" class="container mt-2 mx-auto gap-10 flex flex-1 justify-between items-start">
 
 
     <form class="max-w-lg">
@@ -62,7 +66,7 @@
     </form>
 
 
-    <table class="flex-1 border-collapse" id="curriculum-table">
+    <table class="flex-1 w-full border-collapse table-fixed" id="curriculum-table">
         <thead class="[&>*]:border-collapse">
         <tr class="[&>*]:p-4 [&>*]:text-white">
             <th>Kolegij</th>
@@ -71,19 +75,19 @@
             <th>Predavanja</th>
             <th>Vježbe</th>
             <th>Tip</th>
-            <th>Akcija</th>
+            <th>Brisanje</th>
         </tr>
         </thead>
-        <tbody class="[&>*]:border-collapse [&>*]:text-center [&>*]:text-white border-b-10 outline-red-500 pb-6">
+        <tbody class="[&>*]:text-left [&>*]:text-white border-b-10 outline-red-500 pb-6">
 
         </tbody>
         <tfoot class="[&>*]:border-collapse">
-            <tr class="[&>*]:p-4 [&>*]:text-center [&>*]:text-white [&>*]:border-collapse border-t-2 outline-red-500">
+            <tr class="[&>*]:p-4 [&>*]:text-left [&>*]:text-white [&>*]:border-collapse border-t-2 outline-red-500">
                 <td colspan="1"><strong>Ukupno:</strong></td>
-                <td id="total-ects">0</td> <!-- Total ECTS is displayed here -->
-                <td colspan="1" id="total-hours"></td> <!-- Empty columns to fill the row -->
-                <td colspan="1" id="total-predavanja"></td>
-                <td colspan="1" id="total-vjezbe"></td>
+                <td id="total-ects">0</td>
+                <td colspan="1" id="total-hours">0</td>
+                <td colspan="1" id="total-predavanja">0</td>
+                <td colspan="1" id="total-vjezbe">0</td>
             </tr>
         </tfoot>
     </table>
