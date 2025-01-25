@@ -241,7 +241,7 @@ function loadCurriculum() {
     $('#np-input').on('input', function () {
         const query = $(this).val().toLowerCase().trim();
 
-        if (query === "") {
+        if (query.length < 1) {
             $('#suggestions').html('').hide();
             return;
         }
@@ -253,7 +253,7 @@ function loadCurriculum() {
         if (matchingPredmeti.length > 0) {
             const suggestions = matchingPredmeti
                 .slice(0, 10)
-                .map(p => `<li data-id="${p.id}" class="text-white">${p.kolegij}</li>`)
+                .map(p => `<li data-id="${p.id}" class="text-white hover:bg-zinc-700 cursor-pointer">${p.kolegij}</li>`)
                 .join('');
             $('#suggestions').html(suggestions).show();
         } else {
@@ -267,7 +267,7 @@ function loadCurriculum() {
         const predmetId = $(this).data('id');
         const curriculumName = $(this).text();
 
-        const existingRow = $('#curriculum-table tbody tr').filter(function () {
+        const existingRow = $('#predmeti-table tbody tr').filter(function () {
             return $(this).find('td:first').text() === curriculumName;
         });
 
@@ -292,7 +292,7 @@ function loadCurriculum() {
                         <td><button class="remove-btn">Obriši</button></td>
                     </tr>
                 `;
-                $('#curriculum-table tbody').append(newRow);
+                $('#predmeti-table tbody').append(newRow);
 
                 totalECTS += response.data.ects;
                 totalHours += response.data.sati;
@@ -303,9 +303,8 @@ function loadCurriculum() {
                 $('#total-predavanja').text(totalPredavanja);
                 $('#total-vjezbe').text(totalVjezbe);
 
-
-                $('#curriculum-input').val('');
                 $('#suggestions').hide();
+                $('#np-input').val('');
             },
             error: (xhr, error) => {
                 console.error("Error fetching curriculum details:", error);
@@ -314,7 +313,7 @@ function loadCurriculum() {
     });
 
     // Handle removing a row from the table
-    $('#curriculum-table').on('click', '.remove-btn', function () {
+    $('#predmeti-table').on('click', '.remove-btn', function () {
         const row = $(this).closest('tr');
         const ects = parseInt(row.find('td:nth-child(2)').text());
         const sati = parseInt(row.find('td:nth-child(3)').text());
