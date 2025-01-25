@@ -8,6 +8,7 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="utils/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 <!--Navbar sekcija-->
@@ -26,7 +27,7 @@
             <li class="inline-flex hover:bg-neutral-800 transition"><a href="np.html">Nastavni plan</a></li>
             <li class="inline-flex hover:bg-neutral-800 transition"><a href="kontakt.html">Kontakt</a></li>
             <li class="inline-flex items-center hover:bg-neutral-800 transition"><a
-                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" href="prijava.html">Prijava</a>
+                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" id="nav-login" href="prijava.html">Prijava</a>
                 <svg class="!p-1" height="30" style="fill: #fb923c;" viewBox="0 0 24 24" width="30"
                      xmlns="http://www.w3.org/2000/svg">
                     <path d="m13 16 5-4-5-4v3H4v2h9z"></path>
@@ -49,24 +50,24 @@
 <!--Kontakt sekcija-->
 <div class="contact-background">
     <div class="container mx-auto">
-        <div class="py-48">
+        <div class="lg:py-24 pt-12">
             <form action="https://www.fulek.com/mvc/supit/project-contact-form" method="post">
                 <div class="border-b border-gray-900/10 backdrop-blur-lg p-6 transparent-white rounded">
                     <h2 class="text-base/7 font-semibold text-white">Imate pitanja?</h2>
                     <p class="mb-5 text-sm/6 text-gray-300">Kontaktirajte nas, brzo odgovaramo!</p>
 
-                    <div class="mt-10 sm:m-0 m-12">
+                    <div class="mt-10 sm:m-0 m-2">
                         <div class="sm:col-span-4">
                             <label for="FullName" class="block text-sm/6 font-medium text-white">Ime i prezime</label>
                             <div class="mb-2">
-                                <input placeholder="Pero Perić" type="text" name="FullName" id="FullName" class="block bg-zinc-900 w-full text-sm rounded-md border-0 p-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm/6">
+                                <input placeholder="Pero Perić" type="text" name="FullName" id="FullName" class="block bg-zinc-900 w-full text-sm rounded-md border-0 p-2.5 text-gray-200 shadow-sm ring-1 ring-inset ring-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm/6">
                             </div>
                         </div>
 
                         <div class="sm:col-span-4">
                             <label for="Email" class="block text-sm/6 font-medium text-white">Email</label>
                             <div class="">
-                                <input placeholder="pero@algebra.hr" id="email" name="Email" type="Email" class="block bg-zinc-900 w-full text-sm rounded-md border-0 p-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm/6">
+                                <input placeholder="pero@algebra.hr" id="email" name="Email" type="Email" class="block bg-zinc-900 w-full text-sm rounded-md border-0 p-2.5 text-gray-200 shadow-sm ring-1 ring-inset ring-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm/6">
                             </div>
                         </div>
 
@@ -138,7 +139,7 @@
                     <a href="novosti.html" class="hover:underline me-4 md:me-6">Novosti</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Nastavni plan</a>
+                    <a href="np.html" class="hover:underline me-4 md:me-6">Nastavni plan</a>
                 </li>
                 <li>
                     <a href="kontakt.html" class="hover:underline">Kontakt</a>

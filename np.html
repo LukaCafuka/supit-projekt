@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Nastavni plan</title>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
     <script src="https://cdn.tailwindcss.com"></script>                         <!-- Import tailwindcss -->
     <link rel="stylesheet" href="style.css">
     <script src="utils/jquery-3.7.1.min.js"></script>
@@ -24,7 +26,7 @@
             <li class="inline-flex hover:bg-neutral-800 transition"><a href="np.html">Nastavni plan</a></li>
             <li class="inline-flex hover:bg-neutral-800 transition"><a href="kontakt.html">Kontakt</a></li>
             <li class="inline-flex items-center hover:bg-neutral-800 transition"><a
-                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" href="prijava.html">Prijava</a>
+                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" id="nav-login" href="prijava.html">Prijava</a>
                 <svg class="!p-1" height="30" style="fill: #fb923c;" viewBox="0 0 24 24" width="30"
                      xmlns="http://www.w3.org/2000/svg">
                     <path d="m13 16 5-4-5-4v3H4v2h9z"></path>
@@ -50,48 +52,49 @@
     <div id="login-error" class="text-red-500 pt-12 text-2xl font-bold text-center opacity-0">
         <h1>Niste prijavljeni! Preusmjeravanje na mjesto prijave za 3 sekunde...</h1>
     </div>
-<section id="predmeti-data" class="container mt-2 mx-auto gap-10 flex flex-1 justify-between items-start">
+    <section id="predmeti-data" class="container mt-2 mx-auto gap-10 lg:flex-row flex-col flex flex-1 justify-start lg:justify-between items-start">
 
 
-    <form class="max-w-lg">
-        <div class="relative w-96">
-            <div class="absolute mt-5 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                </svg>
+        <form class="w-full">
+            <div class="relative">
+                <div class="absolute mt-5 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div>
+                <input type="text" id="np-input" placeholder="Upišite naziv kolegija" class="block w-full p-4 ps-10 text-sm text-zinc-200 border border-gray-300 rounded-lg bg-zinc-900 border-zinc-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" />
+                <ul id="suggestions" style="display: none;"></ul>
             </div>
-            <input type="text" id="np-input" placeholder="Upišite naziv kolegija" class="block w-full p-4 ps-10 text-sm text-zinc-200 border border-gray-300 rounded-lg bg-zinc-900 border-zinc-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" />
-            <ul id="suggestions" style="display: none;"></ul>
-        </div>
-    </form>
+        </form>
 
-
-    <table class="flex-1 w-full border-collapse table-fixed" id="curriculum-table">
-        <thead class="[&>*]:border-collapse">
-        <tr class="[&>*]:p-4 [&>*]:text-white">
-            <th>Kolegij</th>
-            <th>ECTS</th>
-            <th>Sati</th>
-            <th>Predavanja</th>
-            <th>Vježbe</th>
-            <th>Tip</th>
-            <th>Brisanje</th>
-        </tr>
-        </thead>
-        <tbody class="[&>*]:text-left [&>*]:text-white border-b-10 outline-red-500 pb-6">
-
-        </tbody>
-        <tfoot class="[&>*]:border-collapse">
-            <tr class="[&>*]:p-4 [&>*]:text-left [&>*]:text-white [&>*]:border-collapse border-t-2 outline-red-500">
-                <td colspan="1"><strong>Ukupno:</strong></td>
-                <td id="total-ects">0</td>
-                <td colspan="1" id="total-hours">0</td>
-                <td colspan="1" id="total-predavanja">0</td>
-                <td colspan="1" id="total-vjezbe">0</td>
+        <div class="lg:overflow-visible overflow-auto w-full">
+        <table class="flex-1 w-full border-collapse table-auto" id="curriculum-table">
+            <thead class="[&>*]:border-collapse">
+            <tr class="[&>*]:p-4 [&>*]:text-white">
+                <th>Kolegij</th>
+                <th>ECTS</th>
+                <th>Sati</th>
+                <th>Predavanja</th>
+                <th>Vježbe</th>
+                <th>Tip</th>
+                <th>Brisanje</th>
             </tr>
-        </tfoot>
-    </table>
-</section>
+            </thead>
+            <tbody class="[&>*]:text-left [&>*]:text-white border-b-10 outline-red-500">
+
+            </tbody>
+            <tfoot class="[&>*]:border-collapse">
+                <tr class="[&>*]:p-4 [&>*]:text-left [&>*]:text-white [&>*]:border-collapse border-t-2 outline-red-500">
+                    <td colspan="1"><strong>Ukupno:</strong></td>
+                    <td id="total-ects">0</td>
+                    <td colspan="1" id="total-hours">0</td>
+                    <td colspan="1" id="total-predavanja">0</td>
+                    <td colspan="1" id="total-vjezbe">0</td>
+                </tr>
+            </tfoot>
+        </table>
+        </div>
+    </section>
 
     <footer class="bg-zinc-900 shadow w-full">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -107,7 +110,7 @@
                         <a href="novosti.html" class="hover:underline me-4 md:me-6">Novosti</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Nastavni plan</a>
+                        <a href="np.html" class="hover:underline me-4 md:me-6">Nastavni plan</a>
                     </li>
                     <li>
                         <a href="kontakt.html" class="hover:underline">Kontakt</a>

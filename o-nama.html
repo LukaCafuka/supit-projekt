@@ -14,6 +14,7 @@ Call to action dugme, "Saznaj više" (Vodi na kontakt podstranicu)
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Sveučilište Algebra</title>                                          <!-- Title za karticu -->
     <script src="https://cdn.tailwindcss.com"></script>                         <!-- Import tailwindcss -->
+    <script src="utils/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 <!--Navbar sekcija-->
@@ -32,7 +33,7 @@ Call to action dugme, "Saznaj više" (Vodi na kontakt podstranicu)
             <li class="inline-flex hover:bg-neutral-800 transition"><a href="np.html">Nastavni plan</a></li>
             <li class="inline-flex hover:bg-neutral-800 transition"><a href="kontakt.html">Kontakt</a></li>
             <li class="inline-flex items-center hover:bg-neutral-800 transition"><a
-                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" href="prijava.html">Prijava</a>
+                    class="hover:bg-neutral-800 !px-0 transition text-orange-400" id="nav-login" href="prijava.html">Prijava</a>
                 <svg class="!p-1" height="30" style="fill: #fb923c;" viewBox="0 0 24 24" width="30"
                      xmlns="http://www.w3.org/2000/svg">
                     <path d="m13 16 5-4-5-4v3H4v2h9z"></path>
@@ -90,7 +91,7 @@ Call to action dugme, "Saznaj više" (Vodi na kontakt podstranicu)
     <section class="container pt-12 mx-auto">
     <div class="flex flex-col justify-self-center">
         <h2 class="text-4xl font-extrabold text-center text-white">Povijest</h2>
-        <p class="my-4 text-lg text-justify text-gray-300 px-2">Zajedno gradimo povijest Algebre. Počeli smo prije gotovo dvadeset godina i s tobom nastavljamo put prema novim uspjesima.
+        <p class="my-4 text-md lg:text-lg text-justify text-gray-300 px-2">Zajedno gradimo povijest Algebre. Počeli smo prije gotovo dvadeset godina i s tobom nastavljamo put prema novim uspjesima.
 
             Otvorili smo Algebra LAB, jedinstveni inovacijski centar koji pomaže tvrtkama, javnim službama i start-up projektima razviti inovativna poslovna rješenja koja će potaknuti konkurentnost gospodarstva. Investicijom od čak tri milijuna kuna, jedini u Hrvatskoj smo objedinili tri ključna elementa – odjel primijenjenog istraživanja i razvoja u digitalnom području, start-up inkubator s coworking prostorom te inovativnu edukacijsku platformu namijenjenu širenju najnaprednijih tehnoloških i poslovnih znanja. Algebra LAB novo je mjesto je za inovacije, kreacije, ideje i snove o budućnosti. </p>
     </div>
@@ -193,7 +194,7 @@ Call to action dugme, "Saznaj više" (Vodi na kontakt podstranicu)
                     <a href="novosti.html" class="hover:underline me-4 md:me-6">Novosti</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Nastavni plan</a>
+                    <a href="np.html" class="hover:underline me-4 md:me-6">Nastavni plan</a>
                 </li>
                 <li>
                     <a href="kontakt.html" class="hover:underline">Kontakt</a>

@@ -13,7 +13,7 @@ menuBtn.addEventListener('click', () => {
     menu.classList.toggle('hidden');
 });
 
-
+//Selektori za novosti
 const novost1 = document.querySelectorAll('.novost1');
 const novost2 = document.querySelectorAll('.novost2');
 const novost3 = document.querySelectorAll('.novost3');
@@ -22,6 +22,7 @@ const novost1txt = document.getElementById('novost1txt');
 const novost2txt = document.getElementById('novost2txt');
 const novost3txt = document.getElementById('novost3txt');
 
+//Eventi sa klik na novosti "saznaj više"
 novost1.forEach(novost => {
     novost.addEventListener('click', () => {
         novost1txt.classList.toggle('hidden');
@@ -47,6 +48,48 @@ novost3.forEach(novost => {
 
 
 $(document).ready(() => {
+
+    const textArray = [
+        "ZAISKRI!"
+    ];
+
+    const typingElement = document.querySelector("#typing-effect");
+    const brzina = 300;
+
+    let textIndex = 0;
+    let charIndex = 0;
+
+    if (typingElement != null) {
+        function typeText() {
+            if (charIndex < textArray[textIndex].length) {
+                typingElement.textContent += textArray[textIndex][charIndex];
+                charIndex++;
+                setTimeout(typeText, brzina);
+            } else {
+
+            }
+        }
+        typeText();
+    }
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealOnScroll = () => {
+        reveals.forEach((el) => {
+            const rect = el.getBoundingClientRect(); // Get element's position
+            if (rect.top < window.innerHeight - 100) {
+                // If element is visible in the viewport
+                el.classList.add("visible");
+            }
+        });
+    };
+
+    // Trigger the function on scroll and on page load
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // Trigger on load
+
+
+
     const currentPage = window.location.pathname;
 
     //Login/register switching
@@ -82,8 +125,12 @@ $(document).ready(() => {
                 console.log(response);
                 if (response.isSuccess) {
                     localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('username', response.data.username);
                     console.log("Pohranjen token");
                     $("#login-msg #login-text").text("Prijava uspješna!");          //promijeni tekst poruke
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 500)
                 } else {
                     console.warn("Netočan unos!");
                     $("#login-msg #login-text").text("Neuspješna prijava..." + response.errorMessages);
@@ -127,11 +174,27 @@ $(document).ready(() => {
         });
     })
 
+    //Prikaz korisnikovog imena umjesto prijave na navbaru
+    if (localStorage.getItem('username') != null) {
+        $('#nav-login').text('Pozdrav, ' + localStorage.getItem('username'));
+
+        $('#nav-login').click((e) => {
+            e.preventDefault();
+            //odjavljivanje korisnika
+            if (confirm('Želite li se odjaviti?')) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('username');
+                window.location.reload();
+            }
+        })
+    }
+    //ako smo na html stranici za nastavni plan, pozovi funkciju
     if (currentPage.includes('np.html')) {
         loadCurriculum();
     }
 })
 
+//funkcija za učitavanje predmeta
 function loadCurriculum() {
     const token = localStorage.getItem('token');
     let predmeti = [];
@@ -164,7 +227,14 @@ function loadCurriculum() {
 
         },
         error: (xhr, error) => {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching data');
+            $('#login-error').removeClass('opacity-0');
+            $('#login-error').removeClass('opacity-100');
+            $('#predmeti-data').remove();
+            setTimeout(() => {
+                document.location.href = 'prijava.html';
+            }, 3000);
+            return;
         }
     });
 
@@ -262,4 +332,5 @@ function loadCurriculum() {
         $('#total-vjezbe').text(totalVjezbe);
         row.remove();
     });
+
 }
