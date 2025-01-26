@@ -13,10 +13,13 @@
     backdrop-filter: blur(5px);
 }
 
+
+
+/* stil tablice na np.html */
 th, td {
 
-    padding: 8px; /* Add padding for readability */
-    border: 1px solid #5b5b5b; /* Add borders for clarity */
+    padding: 8px;
+    border: 1px solid #5b5b5b;
 }
 
 th:nth-child(1), td:nth-child(1) { width: 30%; }

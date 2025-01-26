@@ -44,53 +44,32 @@ novost3.forEach(novost => {
     })
 })
 
+//animacija tipkanja za index stranicu
+const heroText = "ZAISKRI!";
+
+const typingElement = document.querySelector("#typing-effect");
+const brzina = 300;
+
+let charIndex = 0;
+
+if (typingElement != null) {
+    function typeText() {
+        if (charIndex < heroText.length) {
+            typingElement.textContent += heroText[charIndex];
+            charIndex++;
+            setTimeout(typeText, brzina);
+        } else {
+
+        }
+    }
+    typeText();
+}
+
 
 
 
 $(document).ready(() => {
 
-    const textArray = [
-        "ZAISKRI!"
-    ];
-
-    const typingElement = document.querySelector("#typing-effect");
-    const brzina = 300;
-
-    let textIndex = 0;
-    let charIndex = 0;
-
-    if (typingElement != null) {
-        function typeText() {
-            if (charIndex < textArray[textIndex].length) {
-                typingElement.textContent += textArray[textIndex][charIndex];
-                charIndex++;
-                setTimeout(typeText, brzina);
-            } else {
-
-            }
-        }
-        typeText();
-    }
-
-    const reveals = document.querySelectorAll(".reveal");
-
-    const revealOnScroll = () => {
-        reveals.forEach((el) => {
-            const rect = el.getBoundingClientRect(); // Get element's position
-            if (rect.top < window.innerHeight - 100) {
-                // If element is visible in the viewport
-                el.classList.add("visible");
-            }
-        });
-    };
-
-    // Trigger the function on scroll and on page load
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll(); // Trigger on load
-
-
-
-    const currentPage = window.location.pathname;
 
     //Login/register switching
     $("#register-toggle").click((e) => {
@@ -214,7 +193,7 @@ function loadCurriculum() {
         }, 3000);
         return;
     }
-
+    //ajax zahtjev za popis predmeta
     $.ajax({
         url: "https://www.fulek.com/data/api/supit/curriculum-list/hr",
         method: "GET",
@@ -238,6 +217,7 @@ function loadCurriculum() {
         }
     });
 
+    //prikazivanje predmeta u pretraživanju
     $('#np-input').on('input', function () {
         const query = $(this).val().toLowerCase().trim();
 
@@ -263,6 +243,7 @@ function loadCurriculum() {
         }
     });
 
+    //dodavanje predmeta u tablicu
     $('#suggestions').on('click', 'li', function () {
         const predmetId = $(this).data('id');
         const curriculumName = $(this).text();
@@ -289,7 +270,7 @@ function loadCurriculum() {
                         <td>${response.data.predavanja}</td>
                         <td>${response.data.vjezbe}</td>
                         <td>${response.data.tip}</td>
-                        <td><button class="remove-btn">Obriši</button></td>
+                        <td><button class="remove-btn bg-red-500 p-2 text-center rounded hover:bg-red-700">Obriši</button></td>
                     </tr>
                 `;
                 $('#predmeti-table tbody').append(newRow);
@@ -312,7 +293,7 @@ function loadCurriculum() {
         });
     });
 
-    // Handle removing a row from the table
+    // brisanje predmeta iz tablice
     $('#predmeti-table').on('click', '.remove-btn', function () {
         const row = $(this).closest('tr');
         const ects = parseInt(row.find('td:nth-child(2)').text());
@@ -320,7 +301,7 @@ function loadCurriculum() {
         const predavanja = parseInt(row.find('td:nth-child(4)').text());
         const vjezbe = parseInt(row.find('td:nth-child(5)').text());
 
-        // Subtract ECTS and remove the row
+        // oduzimanje vrijednosti nakon brisanja
         totalECTS -= ects;
         totalHours -= sati;
         totalPredavanja -= predavanja;
