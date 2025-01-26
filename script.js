@@ -71,6 +71,10 @@ if (typingElement != null) {
 $(document).ready(() => {
 
 
+
+
+    const currentPage = window.location.pathname;
+
     //Login/register switching
     $("#register-toggle").click((e) => {
         e.preventDefault();
